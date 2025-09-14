@@ -1,0 +1,117 @@
+.query-section {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: #fff;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.query-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+}
+
+/* Spline 3D */
+.query-spline {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 1.5rem;
+}
+
+.query-spline spline-viewer {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+/* Input + mic */
+.query-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  background: #f9f9f9;
+}
+
+.query-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  background: transparent;
+}
+
+.query-result {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #444;
+}
+/* Circular 3D Model */
+.query-spline-circle {
+  position: relative;
+  width: 520px;
+  height: 220px;
+  margin: 0 auto 1.5rem;
+  
+  overflow: hidden;
+  
+  background: #fff;
+}
+
+.query-spline-circle spline-viewer {
+  width: 100%;
+  height: 100%;
+}
+
+/* Hide Spline watermark elements */
+.query-spline-circle spline-viewer::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 270px;
+  height: 130px;
+  background: #fff !important;
+  z-index: 101 !important;
+  pointer-events: none;
+  opacity: 1 !important;
+  /* Complete coverage first, then blend edges */
+  mask: radial-gradient(ellipse 270px 130px at 100% 100%, black 70%, transparent 90%);
+  -webkit-mask: radial-gradient(ellipse 270px 130px at 100% 100%, black 70%, transparent 90%);
+}
+
+/* Additional aggressive watermark hiding */
+.query-spline-circle * {
+  position: relative;
+}
+
+.query-spline-circle [class*="watermark"],
+.query-spline-circle [class*="logo"],
+.query-spline-circle [class*="brand"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* ✅ Hides the watermark */
+.query-spline-circle .watermark-cover {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 270px;
+  height: 130px;
+  background: #fff !important;
+  z-index: 100 !important;
+  pointer-events: none;
+  border-radius: 0 0 0 12px;
+  opacity: 1 !important;
+  /* Complete coverage first, then blend edges */
+  mask: radial-gradient(ellipse 270px 130px at 100% 100%, black 70%, transparent 90%);
+  -webkit-mask: radial-gradient(ellipse 270px 130px at 100% 100%, black 70%, transparent 90%);
+}
+
